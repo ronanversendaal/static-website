@@ -23,7 +23,7 @@
                     </nav>
 
                     <div v-if="this.project.images">
-                        <gallery :images="this.project.images.data.map(a => a.path)" :index="index" @close="index = null"/></gallery>
+                        <Gallery :images="this.project.images.data.map(a => a.path)" :index="index" @close="index = null"/>
                         <div
                             class="image"
                             :key="imageIndex"
@@ -49,6 +49,7 @@
 <script>
     import placeholderImage from '~/assets/img/transparent.png'
     import SVGFilterImage from '~/components/layout/SVGFilterImage.vue'
+    import Gallery from 'vue-gallery'
 
     export default {
       computed: {
@@ -79,7 +80,7 @@
           modalIsActive: false
         }
       },
-      components: { SVGFilterImage, placeholderImage },
+      components: { SVGFilterImage, placeholderImage, Gallery },
       methods: {
         async fetchProjects () {
           const projects = await this.$axios.$get('/projects')

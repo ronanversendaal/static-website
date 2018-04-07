@@ -38,7 +38,7 @@ module.exports = {
 
   axios: {
     // proxyHeaders: false,
-    baseURL: 'http://api.ronanversendaal.com.test'
+    // baseURL: 'http://api.ronanversendaal.com.test'
   },
 
   plugins: [
