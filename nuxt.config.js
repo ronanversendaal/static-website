@@ -1,4 +1,4 @@
-let apiURL = 'http://api.ronanversendaal.com'
+let apiURL = 'https://api.ronanversendaal.com'
 const dev = process.env.NODE_ENV !== 'production'
 
 if (dev) {
