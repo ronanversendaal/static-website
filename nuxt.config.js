@@ -30,7 +30,7 @@ module.exports = {
   */
   head: {
     title: 'Ronan Versendaal',
-    titleTemplate: '%s - Ronan Versendaal',
+    titleTemplate: 'Ronan Versendaal - Web Developer - %s',
     meta: [ // Each object in this array is its own meta tag
       {
         charset: 'utf-8'

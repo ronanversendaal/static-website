@@ -25,6 +25,11 @@
 
   export default {
     // layout: ['blog'],
+    head () {
+      return {
+        title: 'Articles'
+      }
+    },
     components: { Articles },
     created () {
       // console.log(this.$router)

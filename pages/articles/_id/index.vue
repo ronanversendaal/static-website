@@ -29,7 +29,7 @@
           {
             hid: `description`,
             name: 'description',
-            content: `${article.title}`
+            content: `${article.subtitle}`
           }
         ]
       }
