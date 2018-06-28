@@ -12,7 +12,7 @@ module.exports = {
     apiURL
   },
   /*
-  ** Build configuration change
+  ** Build configuration
   */
   build: {
     // vendor: ['vue-muuri-grid'],
