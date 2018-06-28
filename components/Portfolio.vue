@@ -93,7 +93,7 @@
         }
       },
       created () {
-        // this.fetchProjects()
+        this.fetchProjects()
       }
     }
 </script>
