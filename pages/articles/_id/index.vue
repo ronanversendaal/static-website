@@ -20,6 +20,20 @@
 
 <script>
   export default{
+    head () {
+      let article = this.article
+  
+      return {
+        title: `${article.title} - Ronan Versendaal`,
+        meta: [
+          {
+            hid: `description`,
+            name: 'description',
+            content: `${article.title}`
+          }
+        ]
+      }
+    },
     data () {
       return {
         article: []

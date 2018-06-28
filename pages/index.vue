@@ -54,7 +54,12 @@
   // import Timeline from '~/components/Timeline.vue'
 
   export default {
-    components: { Portfolio }
+    components: { Portfolio },
+    head () {
+      return {
+        title: 'Portfolio'
+      }
+    }
   }
 </script>
 
