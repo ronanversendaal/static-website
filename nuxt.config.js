@@ -1,4 +1,16 @@
+let apiURL = 'http://api.ronanversendaal.com'
+const dev = process.env.NODE_ENV !== 'production'
+
+if (dev) {
+  apiURL = 'http://api.ronanversendaal.com.test'
+}
+
 module.exports = {
+
+  env: {
+    baseURL: process.env.BASE_URL || 'localhost:3000',
+    apiURL
+  },
   /*
   ** Build configuration
   */
@@ -17,6 +29,22 @@ module.exports = {
   ** Common headers are already provided by @nuxtjs/pwa preset
   */
   head: {
+    title: 'Ronan Versendaal',
+    titleTemplate: '%s - Ronan Versendaal',
+    meta: [ // Each object in this array is its own meta tag
+      {
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'A skilled back end developer with skills in PHP and Javascript.'
+      }
+    ],
     htmlAttrs: {
       class: 'has-navbar-fixed-top'
     }
@@ -38,7 +66,7 @@ module.exports = {
 
   axios: {
     // proxyHeaders: false,
-    // baseURL: 'http://api.ronanversendaal.com.test'
+    baseURL: apiURL
   },
 
   plugins: [
