@@ -1,0 +1,6 @@
+User-agentL *
+
+Disallow: /auth
+Disallow: /login
+
+Allow: /
