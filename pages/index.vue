@@ -5,7 +5,7 @@
         <div class="columns is-mobile is-centered">
           <div class="column is-narrow">
             <figure class="image is-256x256" id="picture">
-              <img class="rounded" src="~/assets/img/cv-portfolio.jpg">
+              <img class="rounded" alt="Ronan Versendaal" src="~/assets/img/cv-portfolio.jpg">
             </figure>
           </div>
         </div>
