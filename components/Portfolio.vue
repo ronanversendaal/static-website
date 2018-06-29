@@ -1,12 +1,14 @@
 <template>
     <div id="portfolio" v-if="projects.length > 0">
         <section class="section">
-            <h1 class="title has-text-centered is-size-4">Portfolio</h1>
+            <h1 class="title is-spaced has-text-centered is-size-4">Portfolio</h1>
+            <h2 class="subtitle has-text-centered is-size-6">A collection of projects made by me</h2>
         </section>
-        <div class="columns is-gapless is-multiline">
+        <div class="columns is-gapless is-multiline" style="margin-top: 1em">
             <div class="column " :class="currentColumnCount" v-for="project in projects" :key="project.id">
-                <figure @click="toggleModal(project)" class="image is-3by2" v-if="project.images">
+                <figure @click="toggleModal(project)" class="cap-bot-right image is-3by2" v-if="project.images" >
                     <SVGFilterImage :src="project.images.first.path" :src-placeholder="placeholderImage" :alt="project.name"/>
+                    <figcaption class="hero is-primary is-bold">{{project.description}}</figcaption>
                 </figure>
             </div>
         </div>
@@ -16,27 +18,25 @@
                 <div class="project-box">
                     <nav class="navbar" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
-                        <a class="navbar-item" href="https://bulma.io">
-                            {{this.project.title}}
-                        </a>
+                        <h2 class="title is-size-4">
+                            <span class="navbar-item">
+                                {{this.project.title}}
+                            </span>
+                        </h2>
                     </div>
                     </nav>
 
                     <div v-if="this.project.images">
                         <gallery :images="this.project.images.data.map(a => a.path)" :index="index" @close="index = null"/></gallery>
-                        <div
-                            class="image"
+                        <img :src="this.project.images.first.path" class="image"
                             :key="imageIndex"
-                            @click="index = 0"
-                            :style="{ backgroundImage: 'url(' + this.project.images.first.path + ')', width: '100%', height: '30vh', backgroundSize: 'cover' }"
-                            >
-                        </div>
+                            @click="index = 0">
                     </div>
 
                     <section class="section">
-                        <p class="modal-card-title">
+                        <h3 class="title modal-card-title is-size-4">
                             {{this.project.head}}
-                        </p>
+                        </h3>
                         <p>{{this.project.description}}</p>
                     </section>
                 </div>
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-    import placeholderImage from '~/assets/img/transparent.png'
+    import placeholderImage from '~/assets/img/cv-portfolio.jpg'
     import SVGFilterImage from '~/components/layout/SVGFilterImage.vue'
 
     export default {
@@ -63,6 +63,9 @@
               break
             case i === 2:
               this.currentColumnClass = 'is-half'
+              break
+            case i === 1:
+              this.currentColumnClass = 'is-fullscreen'
               break
           }
           return this.currentColumnClass
