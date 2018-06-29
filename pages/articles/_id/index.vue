@@ -36,7 +36,7 @@
     },
     data () {
       return {
-        article: []
+        article: {}
       }
     },
     methods: {
