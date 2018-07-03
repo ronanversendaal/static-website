@@ -6,9 +6,22 @@
         </section>
         <div class="columns is-gapless is-multiline" style="margin-top: 1em">
             <div class="column " :class="currentColumnCount" v-for="project in projects" :key="project.id">
-                <figure @click="toggleModal(project)" class="cap-bot-right image is-3by2" v-if="project.images" >
-                    <SVGFilterImage :src="project.images.first.path" :src-placeholder="placeholderImage" :alt="project.name"/>
-                    <figcaption class="hero is-primary is-bold">{{project.description}}</figcaption>
+                <figure @click="toggleModal(project)" class="hero cap-bot-right image is-3by2 is-primary is-bold	">
+                    <!-- <SVGFilterImage v-if="project.albums.first && project.albums.first.images.first" :src="project.albums.first.images.first.path" :src-placeholder="placeholderImage" :alt="project.name"/> -->
+                    <div class="bg-primary">
+                        <div v-if="project.albums.first && project.albums.first.images.first">
+                            <SVGFilterImage :src="project.albums.first.images.first.path" :src-placeholder="placeholderImage" :alt="project.name"/>
+                            <figcaption class="hero is-primary is-bold">{{project.title}}</figcaption>
+                        </div>
+                        <!-- <img src="/background.jpg"> -->
+                        <!-- <p class="text-center">{{project.title}}</p> -->
+                        <div v-else>
+                            <span class="is-size-5">{{project.title}}</span>
+                            <figcaption class="hero is-primary is-bold">{{project.head}}</figcaption>
+                        </div>
+                    </div>
+                    <!-- <SVGFilterImage v-else src="/background.jpg" :src-placeholder="placeholderImage" :alt="project.name"/> -->
+                    
                 </figure>
             </div>
         </div>
@@ -26,18 +39,20 @@
                     </div>
                     </nav>
 
-                    <div v-if="this.project.images">
-                        <gallery :images="this.project.images.data.map(a => a.path)" :index="index" @close="index = null"/></gallery>
-                        <img :src="this.project.images.first.path" class="image"
+                    <div v-if="this.project.albums
+                            && this.project.albums.first 
+                            && this.project.albums.first.images.first">
+                        <gallery :images="this.project.albums.first.images.data.map(a => a.path)" :index="index" @close="index = null"/></gallery>
+                        <img :src="this.project.albums.first.images.first.path" class="image"
                             :key="imageIndex"
                             @click="index = 0">
                     </div>
 
                     <section class="section">
-                        <h3 class="title modal-card-title is-size-4">
+                        <h3 class="title modal-card-title is-size-6">
                             {{this.project.head}}
                         </h3>
-                        <p>{{this.project.description}}</p>
+                        <p v-html="this.project.description"></p>
                     </section>
                 </div>
             </div>
@@ -47,7 +62,7 @@
 </template>
 
 <script>
-    import placeholderImage from '~/assets/img/cv-portfolio.jpg'
+    import placeholderImage from '~/assets/img/transparent.png'
     import SVGFilterImage from '~/components/layout/SVGFilterImage.vue'
 
     export default {
@@ -87,6 +102,7 @@
         async fetchProjects () {
           const projects = await this.$axios.$get('/projects')
           this.projects = projects
+          console.log(projects)
         },
         toggleModal (project) {
           if (project) {
@@ -100,3 +116,28 @@
       }
     }
 </script>
+
+<style>
+
+figure {
+    outline: 1px solid white
+}
+
+figure .bg-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.modal-project .image{
+    cursor: pointer;
+}
+
+.modal-project .modal-content{
+    width: 80%;
+}
+</style>

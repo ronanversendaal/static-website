@@ -2,7 +2,8 @@
   <div class="card">
         <div class="card-image">
             <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                <img v-if="article.albums.first" :src="article.albums.first.images.first.path" :alt="article.title">
+                <img v-else src="https://placehold.it/1920x1080" :alt="article.title">
             </figure>
         </div>
         <header class="card-header">

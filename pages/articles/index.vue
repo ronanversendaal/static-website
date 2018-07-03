@@ -7,7 +7,7 @@
             Articles
           </h1>
           <h2 class="subtitle">
-            Publications about web development written by me.
+            Publications about web development. 
           </h2>
         </div>
       </div>

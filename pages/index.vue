@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="content">
     <section class="section">
       <div class="container">
         <div class="columns is-mobile is-centered">
@@ -21,7 +21,7 @@
         <div class="container">
           <div class="columns is-centered">
             <div class="column is-half has-text-centered is-size-5">
-              <p>I am a web developer based in Rotterdam, The Netherlands.</p><p> My interests lie in creating web apps and learning about new technologies in web development. I am proficient in PHP, JavaScript and often utiltize frameworks/libraries for these languages.</p>
+              <p>I am a web developer based in Rotterdam, The Netherlands.</p><p> My interests lie in creating applications and learning about new technologies in web development. I am proficient in PHP, JavaScript and often utiltize frameworks/libraries for these languages.</p>
 
               <p>I usually rely on the <a href="https://laravel.com/" target="_blank" rel="noopener" >Laravel framework</a> for back-end work to implement business logic in all sorts of web apps or API's.</p>
               <p>Recently I have been building alot with front-end frameworks such as <a href="https://vuejs.org/" target="_blank" rel="noopener" >Vue.js</a> and have 
@@ -30,7 +30,6 @@
                 
                 a lot with new technologies.
               </p>
-
               <!-- <p>Aside from building, I often <nuxt-link to="/articles">publish some useful things</nuxt-link> about development, or I'll be somewhere shooting some arrows :)</p> -->
               <p>Aside from developing, I love to do archery, and will often be somewhere shooting some arrows.</p>
             </div>
