@@ -1,8 +1,8 @@
-let apiURL = 'http://api.ronanversendaal.com/v1'
+let apiURL = 'https://api-ronanversendaal.herokuapp.com/v1'
 const dev = process.env.NODE_ENV !== 'production'
 
 if (dev) {
-  apiURL = 'http://api.ronanversendaal.com.test/v1'
+  apiURL = 'https://api-ronanversendaal.herokuapp.com.test/v1'
 }
 
 module.exports = {
