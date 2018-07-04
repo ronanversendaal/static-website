@@ -102,7 +102,6 @@
         async fetchProjects () {
           const projects = await this.$axios.$get('/projects')
           this.projects = projects
-          console.log(projects)
         },
         toggleModal (project) {
           if (project) {
