@@ -12,9 +12,9 @@
 
         <div class="navbar-menu navbar-end" :class="{'is-active': menuActive}">
             <!-- navbar start, navbar end -->
-            <div class="navbar-item">
+            <!-- <div class="navbar-item">
                 <nuxt-link @click.native="deactivateMenu" class="has-text-primary" to="/articles">Articles</nuxt-link>
-            </div>
+            </div> -->
         </div>
       </div>
   </nav>
